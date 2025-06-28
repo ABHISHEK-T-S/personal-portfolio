@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhishek T. S. | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      /* Ensure smooth scroll for navigation links */
+      scroll-behavior: smooth;
+    }
+    /* Custom styles for mobile menu transition */
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    .mobile-menu.active {
+      max-height: 500px; /* Adjust as needed to accommodate content */
+      transition: max-height 0.3s ease-in;
+    }
+    /* Sleek Light Theme Adjustments */
+    body:not(.dark) {
+      /* Adjusted neutral backgrounds for light mode */
+      --tw-bg-opacity: 1;
+      background-color: #f8fafc; /* light blue-gray-50 */
+      color: #1f2937; /* gray-900 */
+    }
+    body:not(.dark) .bg-gray-900,
+    body:not(.dark) .bg-gray-800 { /* Headers and cards in light mode */
+      background-color: #ffffff; /* pure white */
+    }
+    body:not(.dark) .bg-gray-950 { /* Alternating sections in light mode */
+      background-color: #f1f5f9; /* light blue-gray-100 */
+    }
+    body:not(.dark) .text-gray-900 {
+      color: #1f2937;
+    }
+    body:not(.dark) .text-gray-300,
+    body:not(.dark) .text-gray-400,
+    body:not(.dark) .text-gray-500,
+    body:not(.dark) .text-gray-600,
+    body:not(.dark) .text-gray-700 {
+      color: #4b5563; /* gray-700 for main text */
+    }
+    body:not(.dark) .border-gray-700,
+    body:not(.dark) .border-gray-600 {
+      border-color: #e2e8f0; /* blue-gray-200 for borders */
+    }
+    body:not(.dark) .shadow-sm {
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+    body:not(.dark) .shadow-lg {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    }
+    body:not(.dark) .shadow-xl {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+    }
+    body:not(.dark) .shadow-2xl {
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    /* Accent color adjustment for light mode */
+    body:not(.dark) .text-teal-400,
+    body:not(.dark) .hover\:text-teal-400:hover {
+      color: #0d9488; /* teal-700 */
+    }
+    body:not(.dark) .bg-teal-500 {
+      background-color: #0d9488; /* teal-700 */
+    }
+    body:not(.dark) .hover\:bg-teal-600:hover {
+      background-color: #0f766e; /* teal-800 */
+    }
+    body:not(.dark) .border-teal-400 {
+      border-color: #0d9488;
+    }
+    body:not(.dark) .group-hover\:border-teal-400:hover {
+      border-color: #0d9488;
+    }
+    body:not(.dark) .text-teal-300 {
+      color: #2dd4bf; /* teal-400 */
+    }
+    body:not(.dark) .text-teal-200 {
+      color: #5eead4; /* teal-300 */
+    }
+    body:not(.dark) .backdrop-blur-md {
+      background-color: rgba(255, 255, 255, 0.85); /* Slightly less opaque for sleek feel */
+    }
+  </style>
+</head>
+<body id="theme-root" class="transition-colors duration-300 bg-gradient-to-br from-gray-950 to-gray-800 text-gray-100 dark:bg-gradient-to-br dark:from-gray-950 dark:to-gray-800 dark:text-gray-100">
+
+  <header class="sticky top-0 z-20 bg-gray-900 bg-opacity-90 backdrop-blur-md shadow-lg transition-all duration-300
+                 dark:bg-gray-900 dark:bg-opacity-90 dark:shadow-xl">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold tracking-tight text-teal-400">Abhishek T. S.</h1>
+      <div class="flex items-center space-x-4">
+        <nav id="desktop-nav" class="space-x-6 text-sm font-medium hidden sm:block">
+          <a href="#about" class="text-gray-300 hover:text-teal-400 transition-colors duration-200">About</a>
+          <a href="#education" class="text-gray-300 hover:text-teal-400 transition-colors duration-200">Education</a>
+          <a href="#experience" class="text-gray-300 hover:text-teal-400 transition-colors duration-200">Experience</a>
+          <a href="#projects" class="text-gray-300 hover:text-teal-400 transition-colors duration-200">Projects</a>
+          <a href="#skills" class="text-gray-300 hover:text-teal-400 transition-colors duration-200">Skills</a>
+          <a href="#creative" class="text-gray-300 hover:text-teal-400 transition-colors duration-200">Creative</a>
+          <a href="#contact" class="text-gray-300 hover:text-teal-400 transition-colors duration-200">Contact</a>
+        </nav>
+        <button id="mobile-menu-button" class="sm:hidden w-10 h-10 flex items-center justify-center rounded-full border border-gray-700 text-gray-400 hover:border-teal-400 hover:text-teal-400 transition-all duration-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+        <button id="theme-toggle" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-700 text-gray-400 hover:border-teal-400 hover:text-teal-400 transition-all duration-200">
+          🌙
+        </button>
+      </div>
+    </div>
+    <nav id="mobile-nav" class="mobile-menu sm:hidden bg-gray-800 text-sm py-2 border-t border-gray-700">
+      <div class="flex flex-col items-center space-y-3 pb-4">
+        <a href="#about" class="text-gray-300 hover:text-teal-400 transition-colors duration-200 w-full text-center py-2">About</a>
+        <a href="#education" class="text-gray-300 hover:text-teal-400 transition-colors duration-200 w-full text-center py-2">Education</a>
+        <a href="#experience" class="text-gray-300 hover:text-teal-400 transition-colors duration-200 w-full text-center py-2">Experience</a>
+        <a href="#projects" class="text-gray-300 hover:text-teal-400 transition-colors duration-200 w-full text-center py-2">Projects</a>
+        <a href="#skills" class="text-gray-300 hover:text-teal-400 transition-colors duration-200 w-full text-center py-2">Skills</a>
+        <a href="#creative" class="text-gray-300 hover:text-teal-400 transition-colors duration-200 w-full text-center py-2">Creative</a>
+        <a href="#contact" class="text-gray-300 hover:text-teal-400 transition-colors duration-200 w-full text-center py-2">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="relative flex items-center justify-center min-h-[90vh] text-center px-4 py-16 bg-gray-950 dark:bg-gray-950 overflow-hidden">
+    <div class="absolute inset-0 z-0 opacity-50 dark:opacity-20">
+        <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+                    <path d="M 80 0 L 0 0 L 0 80" fill="none" stroke="currentColor" stroke-width="0.5" class="text-gray-700 dark:text-gray-700" opacity="0.1"></path>
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+    </div>
+    <div class="relative z-10 max-w-3xl bg-gray-900 bg-opacity-70 backdrop-blur-lg p-8 sm:p-12 rounded-3xl shadow-2xl border border-gray-700 mx-auto
+                dark:bg-gray-900 dark:bg-opacity-70 dark:shadow-2xl dark:border-gray-700">
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-teal-400 mb-4 sm:mb-6 leading-tight">RPA Developer | Creative Thinker | Self-Improver</h2>
+      <p class="text-gray-300 text-lg sm:text-xl font-light leading-relaxed">Automating with purpose. Building with clarity. Growing every day.</p>
+      <p class="mt-8 text-teal-300 text-base sm:text-lg">
+        <a href="https://github.com/ABHISHEK-T-S" target="_blank" rel="noopener noreferrer" class="underline hover:text-teal-200 transition-colors duration-200">
+          View my GitHub <span aria-hidden="true">→</span>
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <section id="about" class="py-20 sm:py-24 px-4 sm:px-6 bg-gray-900 dark:bg-gray-900">
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-3xl sm:text-4xl font-bold text-teal-400 mb-8">About Me</h3>
+      <p class="text-gray-300 text-lg leading-relaxed">
+        I'm Abhishek, an RPA Developer with over 3 years of experience at Tata Consultancy Services, Kochi. 
+        I specialize in building robust automation workflows using Automation Anywhere, Power Automate, and Python. I am passionate about leveraging technology to streamline processes and solve real-world problems.
+      </p>
+    </div>
+  </section>
+  <section id="education" class="py-20 sm:py-24 bg-gray-950 px-4 sm:px-6 dark:bg-gray-950">
+    <div class="max-w-5xl mx-auto">
+      <h3 class="text-3xl sm:text-4xl font-bold text-teal-400 mb-10 sm:mb-12">Education</h3>
+
+      <div class="bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-700 transition-all duration-300 hover:shadow-2xl hover:border-teal-400">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3">
+          <h4 class="text-2xl font-semibold text-white mb-1 sm:mb-0">Bachelor of Technology in Computer Science & Engineering</h4>
+          <span class="text-base text-gray-400 font-light">2017 – 2021</span>
+        </div>
+        <p class="text-gray-300 text-lg">Government Engineering College, Sreekrishnapuram, Kerala</p>
+        <ul class="list-disc list-inside text-gray-400 mt-4 space-y-2 text-base pl-4">
+          <li>CGPA: 7.71/10</li>
+          <li>Completed comprehensive courses in Data Structures, DBMS, Software Engineering, and Automation principles.</li>
+          <li>Final year project: "RPA-based Invoice Processing System" - Designed and implemented an automated system to process invoices efficiently.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="experience" class="py-20 sm:py-24 bg-gray-900 px-4 sm:px-6 dark:bg-gray-900">
+    <div class="max-w-5xl mx-auto">
+      <h3 class="text-3xl sm:text-4xl font-bold text-teal-400 mb-10 sm:mb-12">Professional Experience</h3>
+      <div class="bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-700 transition-all duration-300 hover:shadow-2xl hover:border-teal-400">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3">
+          <h4 class="text-2xl font-semibold text-white mb-1 sm:mb-0">RPA Developer</h4>
+          <span class="text-base text-gray-400 font-light">TCS · Oct 2021 – Present</span>
+        </div>
+        <ul class="text-gray-300 list-disc list-inside mt-4 space-y-2 text-lg pl-4">
+          <li>Built, tested, and deployed robust automation bots using **Automation Anywhere** and **Microsoft Power Automate**, significantly improving operational efficiency.</li>
+          <li>Optimized critical business processes and reduced manual effort by an average of 30% across various finance and data workflows.</li>
+          <li>Collaborated effectively with cross-functional and global teams to design, develop, and deliver scalable and well-documented automation solutions.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="py-20 sm:py-24 bg-gray-950 px-4 sm:px-6 dark:bg-gray-950">
+    <div class="max-w-5xl mx-auto">
+      <h3 class="text-3xl sm:text-4xl font-bold text-teal-400 mb-10 sm:mb-12">Projects</h3>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="bg-gray-800 rounded-2xl p-7 shadow-xl border border-gray-700 hover:shadow-2xl hover:border-teal-400 transition-all duration-300">
+          <h4 class="text-xl font-semibold text-white mb-2">Expense Tracker</h4>
+          <p class="text-gray-300 mb-4 text-base leading-relaxed">A modern web application built with Firebase and JavaScript, featuring comprehensive CRUD operations, advanced filtering, and data export functionalities.</p>
+          <a href="https://github.com/ABHISHEK-T-S/expense-tracker" class="text-teal-400 underline hover:text-teal-200 transition-colors duration-200" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="bg-gray-800 rounded-2xl p-7 shadow-xl border border-gray-700 hover:shadow-2xl hover:border-teal-400 transition-all duration-300">
+          <h4 class="text-xl font-semibold text-white mb-2">Life Dashboard</h4>
+          <p class="text-gray-300 mb-4 text-base leading-relaxed">An intuitive dashboard application developed with Angular and Firebase, designed to help users track daily tasks, manage personal goals, and monitor progress effectively.</p>
+          <a href="https://github.com/ABHISHEK-T-S/life-dashboard" class="text-teal-400 underline hover:text-teal-200 transition-colors duration-200" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="bg-gray-800 rounded-2xl p-7 shadow-xl border border-gray-700 hover:shadow-2xl hover:border-teal-400 transition-all duration-300">
+          <h4 class="text-xl font-semibold text-white mb-2">RPA Invoice Processor</h4>
+          <p class="text-gray-300 mb-4 text-base leading-relaxed">An automated system built with Python and OCR technologies to extract data from invoices, validate information, and integrate with financial systems, reducing manual data entry errors.</p>
+          <a href="https://github.com/ABHISHEK-T-S/rpa-invoice-processor" class="text-teal-400 underline hover:text-teal-200 transition-colors duration-200" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="py-20 sm:py-24 bg-gray-900 px-4 sm:px-6 dark:bg-gray-900">
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-3xl sm:text-4xl font-bold text-teal-400 mb-10">Skills & Tools</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 text-gray-300 text-base sm:text-lg">
+        <span class="bg-gray-800 rounded-lg p-3 text-center shadow-md border border-gray-700 hover:bg-gray-700 hover:border-teal-400 transition-all duration-200">Automation Anywhere</span>
+        <span class="bg-gray-800 rounded-lg p-3 text-center shadow-md border border-gray-700 hover:bg-gray-700 hover:border-teal-400 transition-all duration-200">Python</span>
+        <span class="bg-gray-800 rounded-lg p-3 text-center shadow-md border border-gray-700 hover:bg-gray-700 hover:border-teal-400 transition-all duration-200">Power Automate</span>
+        <span class="bg-gray-800 rounded-lg p-3 text-center shadow-md border border-gray-700 hover:bg-gray-700 hover:border-teal-400 transition-all duration-200">SQL</span>
+        <span class="bg-gray-800 rounded-lg p-3 text-center shadow-md border border-gray-700 hover:bg-gray-700 hover:border-teal-400 transition-all duration-200">Excel VBA</span>
+        <span class="bg-gray-800 rounded-lg p-3 text-center shadow-md border border-gray-700 hover:bg-gray-700 hover:border-teal-400 transition-all duration-200">Git</span>
+        <span class="bg-gray-800 rounded-lg p-3 text-center shadow-md border border-gray-700 hover:bg-gray-700 hover:border-teal-400 transition-all duration-200">JavaScript</span>
+        <span class="bg-gray-800 rounded-lg p-3 text-center shadow-md border border-gray-700 hover:bg-gray-700 hover:border-teal-400 transition-all duration-200">HTML & CSS</span>
+        <span class="bg-gray-800 rounded-lg p-3 text-center shadow-md border border-gray-700 hover:bg-gray-700 hover:border-teal-400 transition-all duration-200">UI Path</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="creative" class="py-20 sm:py-24 bg-gray-950 px-4 sm:px-6 dark:bg-gray-950">
+    <div class="max-w-5xl mx-auto">
+      <h3 class="text-3xl sm:text-4xl font-bold text-teal-400 mb-10 text-center">Creative Corner</h3>
+      <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-20 sm:py-24 bg-gray-900 px-4 sm:px-6 text-center dark:bg-gray-900">
+    <div class="max-w-xl mx-auto">
+      <h3 class="text-3xl sm:text-4xl font-bold text-teal-400 mb-6">Let's Connect</h3>
+      <p class="text-gray-300 text-lg leading-relaxed mb-8">
+        I'm always open to new opportunities and collaborations. Feel free to reach out!
+      </p>
+      <div class="space-y-4">
+        <p class="text-gray-300 text-base sm:text-lg">Email: <a href="mailto:tsabhishek1999@gmail.com" class="text-teal-400 underline hover:text-teal-200 transition-colors duration-200" target="_blank" rel="noopener noreferrer">tsabhishek1999@gmail.com</a></p>
+        <p class="text-gray-300 text-base sm:text-lg">LinkedIn: <a href="https://www.linkedin.com/in/abhishek-t-s/" class="text-teal-400 underline hover:text-teal-200 transition-colors duration-200" target="_blank" rel="noopener noreferrer">linkedin.com/in/abhishek-t-s</a></p>
+        <p class="text-gray-300 text-base sm:text-lg">Instagram: <a href="https://www.instagram.com/abhishek_t_sujatha/" class="text-teal-400 underline hover:text-teal-200 transition-colors duration-200" target="_blank" rel="noopener noreferrer">@abhishek_t_sujatha</a></p>
+        <p class="text-gray-300 text-base sm:text-lg">GitHub: <a href="https://github.com/ABHISHEK-T-S" class="text-teal-400 underline hover:text-teal-200 transition-colors duration-200" target="_blank" rel="noopener noreferrer">github.com/ABHISHEK-T-S</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray-900 px-4 sm:px-6 pb-20 sm:pb-24 text-center dark:bg-gray-900">
+    <div class="max-w-xl mx-auto">
+      <a href="resume.pdf" download class="inline-block bg-teal-500 hover:bg-teal-600 text-white font-semibold px-8 py-4 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105">
+        📄 Download Resume
+      </a>
+    </div>
+  </section>
+
+  <footer class="text-center text-sm text-gray-500 py-8 bg-gray-950 dark:bg-gray-950 border-t border-gray-800">
+    © 2025 Abhishek T. S. · Built with Tailwind CSS · 
+    <a href="https://github.com/ABHISHEK-T-S" class="text-teal-400 underline hover:text-teal-200 transition-colors duration-200" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const toggleBtn = document.getElementById('theme-toggle');
+    const root = document.getElementById('theme-root');
+
+    const enableLight = () => {
+      root.classList.remove("dark");
+      root.classList.remove("from-gray-950", "to-gray-800"); // Remove dark mode gradient
+      root.classList.add("bg-white", "text-gray-900"); // Add light mode base
+      toggleBtn.textContent = "☀️";
+      localStorage.setItem("theme", "light");
+    };
+
+    const enableDark = () => {
+      root.classList.add("dark");
+      root.classList.remove("bg-white", "text-gray-900"); // Remove light mode base
+      root.classList.add("from-gray-950", "to-gray-800"); // Add dark mode gradient
+      toggleBtn.textContent = "🌙";
+      localStorage.setItem("theme", "dark");
+    };
+
+    // Event listener for theme toggle button
+    if (toggleBtn) {
+        toggleBtn.addEventListener("click", () => {
+            const theme = localStorage.getItem("theme");
+            if (theme === "dark") {
+                enableLight();
+            } else {
+                enableDark();
+            }
+        });
+    }
+
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    if (mobileMenuButton && mobileNav) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            const isExpanded = mobileNav.classList.contains('active');
+            mobileMenuButton.setAttribute('aria-expanded', isExpanded);
+            const icon = mobileMenuButton.querySelector('svg path');
+            if (isExpanded) {
+                icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            } else {
+                icon.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+            }
+        });
+
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                mobileMenuButton.setAttribute('aria-expanded', false);
+                mobileMenuButton.querySelector('svg path').setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 640) {
+                mobileNav.classList.remove('active');
+                mobileMenuButton.setAttribute('aria-expanded', false);
+                mobileMenuButton.querySelector('svg path').setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+            }
+        });
+    }
+
+    // Apply initial theme and handle mobile menu state on load
+    window.onload = () => {
+        // Theme logic
+        if (localStorage.getItem("theme") === "light") {
+            enableLight();
+        } else {
+            enableDark(); // Default to dark for a sleek, modern look
+        }
+
+        // Mobile menu logic (ensure it's closed on load if on desktop)
+        if (mobileNav) {
+            if (window.innerWidth >= 640) {
+                mobileNav.classList.remove('active');
+            }
+        }
+    };
+
+
+    // Dynamic Gallery
+    fetch('assets/images/images.json')
+      .then(res => {
+        if (!res.ok) {
+            console.error('Failed to load images.json:', res.statusText);
+            return [];
+        }
+        return res.json();
+      })
+      .then(imageNames => {
+        const gallery = document.getElementById("gallery");
+        const folder = "assets/images/";
+        if (!gallery) {
+            console.warn('Gallery element not found. Skipping image loading.');
+            return;
+        }
+        if (imageNames.length === 0) {
+            gallery.innerHTML = '<p class="col-span-full text-center text-gray-400">No images found. Please ensure assets/images/images.json exists and contains image filenames.</p>';
+            return;
+        }
+
+        imageNames.forEach((name) => {
+          const card = document.createElement("div");
+          card.className = `
+            group relative overflow-hidden rounded-2xl bg-gray-800 shadow-xl border border-gray-700
+            hover:shadow-2xl hover:border-teal-400 transition-all duration-300
+            flex flex-col justify-end
+            dark:bg-gray-800 dark:border-gray-700
+          `;
+
+          const img = document.createElement("img");
+          img.src = folder + name;
+          img.alt = name;
+          img.className = `
+            w-full aspect-[4/3] object-cover object-center
+            group-hover:scale-105 group-hover:brightness-90 transition-all duration-300
+          `;
+          img.onerror = function() {
+            this.src = "https://via.placeholder.com/400x300?text=Image+Not+Found";
+            this.alt = "Image not found";
+            this.classList.add('p-4');
+          };
+
+          const prettyName = name.replace(/\.[^/.]+$/, '').replace(/[_-]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+
+          const caption = document.createElement("div");
+          caption.className = `
+            absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent
+            p-4 text-center text-teal-200 text-base font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300
+            rounded-b-2xl
+          `;
+          caption.textContent = prettyName;
+
+          card.appendChild(img);
+          card.appendChild(caption);
+          gallery.appendChild(card);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching images.json:', error);
+        const gallery = document.getElementById("gallery");
+        if (gallery) {
+            gallery.innerHTML = '<p class="col-span-full text-center text-red-400">Error loading creative content. Please check the console.</p>';
+        }
+      });
+  </script>
+
+</body>
+</html>
